@@ -1,12 +1,12 @@
 ﻿using Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Persistence
 {
     public class DataContext : DbContext
     {
         public DbSet<Value> Values { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
         public DataContext() : base()
         {
