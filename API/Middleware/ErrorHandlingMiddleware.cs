@@ -24,7 +24,7 @@ namespace API.Middleware
             {
                 await _next(context);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex, _logger);
             }
@@ -33,12 +33,12 @@ namespace API.Middleware
         private async Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<ErrorHandlingMiddleware> logger)
         {
             object errors = null;
-            switch(ex)
+            switch (ex)
             {
                 case RestException re:
                     logger.LogError(ex, "REST ERROR");
                     errors = re.Errors;
-                    context.Response.StatusCode = (int) re.Code;
+                    context.Response.StatusCode = (int)re.Code;
                     break;
                 case Exception e:
                     logger.LogError(ex, "SERVER ERROR");
