@@ -2,8 +2,6 @@
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Persistence;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -1,8 +1,8 @@
 ﻿using Application.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace API.Middleware
@@ -50,7 +50,7 @@ namespace API.Middleware
             context.Response.ContentType = "application/json";
             if (errors != null)
             {
-                var result = JsonConvert.SerializeObject(new
+                var result = JsonSerializer.Serialize<object>(new
                 {
                     errors
                 });
