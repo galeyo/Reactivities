@@ -37,7 +37,7 @@ namespace Application.Photos
                 var user = await _context.Users.SingleOrDefaultAsync(x => x.UserName == _userAccessor.GetCurrentUsername());
 
                 var photo = new Photo
-                {   
+                {
                     Url = photoUploadResult.Url,
                     Id = photoUploadResult.PublicId,
                 };
