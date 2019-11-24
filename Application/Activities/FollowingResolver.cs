@@ -3,7 +3,6 @@ using AutoMapper;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System;
 using System.Linq;
 
 namespace Application.Activities

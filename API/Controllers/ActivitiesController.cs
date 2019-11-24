@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,9 +11,16 @@ namespace API.Controllers
     public class ActivitiesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<ActivityDto>>> List(CancellationToken ct)
+        public async Task<ActionResult<List.ActivitiesEnvelope>> List(
+            int? limit,
+            int? offset,
+            bool isGoing,
+            bool isHost,
+            DateTime? startDate,
+            CancellationToken ct)
         {
-            return await Mediator.Send(new List.Query(), ct);
+            return await Mediator.Send(new List.Query(
+                limit, offset, isGoing, isHost, startDate), ct);
         }
 
         [HttpGet("{id}")]
