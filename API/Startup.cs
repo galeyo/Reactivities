@@ -22,6 +22,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,6 +52,7 @@ namespace API
                     policy
                         .AllowAnyHeader()
                         .AllowAnyMethod()
+                        .WithExposedHeaders("www-authenticate")
                         .AllowCredentials()
                         .WithOrigins("http://localhost:3000");
                 });
@@ -89,7 +91,9 @@ namespace API
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = key,
                         ValidateAudience = false,
-                        ValidateIssuer = false
+                        ValidateIssuer = false,
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero
                     };
                     opt.Events = new JwtBearerEvents
                     {
