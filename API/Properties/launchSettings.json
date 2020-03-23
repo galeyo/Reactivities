@@ -33,7 +33,7 @@
       "commandName": "Executable",
       "executablePath": "dotnet",
       "commandLineArgs": "watch run",
-      "workingDirectory": "D:\\ASP.NET\\REACTIVITES\\MyProjects\\Reactivities\\API",
+      "workingDirectory": "C:\\Users\\gokhapki\\MYWORK\\ASP.NET\\Reactivity\\API",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
